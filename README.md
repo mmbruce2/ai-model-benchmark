@@ -1,52 +1,55 @@
 # 🤖 AI Model Benchmark Analyzer
 
-Analyzes **15 top AI models** across OpenAI, Anthropic, Google, Meta, Mistral, DeepSeek, and Alibaba. Benchmark scores (MMLU, Math, Coding, Reasoning), cost efficiency, and latency comparison.
+Analyzes **15 leading AI models** across MMLU (knowledge), HumanEval (coding), MATH (reasoning), GSM8K (grade school math), cost per token, and context window size.
 
 ## What It Does
 
-- **15 models** tracked: GPT-4o, Claude 3.5, Gemini 2.0, Llama 3.1, o1, DeepSeek V3, Mistral, Qwen
-- **Overall leader**: o1-preview 91.9 avg, Gemini 2.5 Pro 88.1, Claude 3.5 Sonnet 87.1
-- **Best coding**: o1-preview 95.1%, Gemini 2.5 Pro 93.5%, Claude 3.5 Sonnet 92.1%
-- **Best math**: o1-preview 87.2%, Gemini 2.5 Pro 80.1%, o1-mini 80.1%
-- **Best reasoning**: o1-preview 93.5%, Claude 3.5 Sonnet 89.2%, Gemini 2.5 Pro 88.9%
-- **Best value**: Llama 3.1 8B at 1732.5 pts/$ (only $0.04/1M tokens!)
-- **Fastest**: Llama 3.1 8B at 200ms, Gemini 2.0 Flash at 300ms
-- **4 charts**: overall ranking, cost vs performance, benchmark breakdown, latency vs performance
+- **15 top AI models**: o1-preview, Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro, Llama 3 70B, Mistral Large, and more
+- **Overall best**: o1-preview 91.6% avg (OpenAI), Claude 3.5 Sonnet 88.0%, GPT-4o 86.0%
+- **Best MMLU**: o1-preview 91.4%, Gemini 1.5 Pro 89.3%, Claude 3.5 Sonnet 88.7%
+- **Best coding**: o1-preview 93.1%, Claude 3.5 Sonnet 92.0%, GPT-4o 90.2%
+- **Best math reasoning**: o1-preview 89.3%, Claude 3.5 Sonnet 78.2%, GPT-4o 76.6%
+- **Best value**: Gemini 1.5 Flash 922.4 score ($0.075/1M tokens, 78.4% avg)
+- **Largest context**: Gemini 1M tokens, Claude 200K tokens
+- **4 charts**: Performance ranking, cost vs performance, top 5 breakdown, context vs performance
 
 ## Quick Start
 
 ```bash
 pip install pandas matplotlib
-python analyzer.py
+python run.py
 ```
 
 ## Key Findings
 
 ```
-🏆 OVERALL LEADERBOARD:
-   o1-preview: 91.9 avg (OpenAI)
-   Gemini 2.5 Pro: 88.1 (Google)
-   Claude 3.5 Sonnet: 87.1 (Anthropic)
-   o1-mini: 86.3 (OpenAI)
-   GPT-4o: 85.7 (OpenAI)
+🏆 OVERALL BEST (avg benchmark):
+   o1-preview: 91.6% | Claude 3.5 Sonnet: 88.0%
+   GPT-4o: 86.0% | Gemini 1.5 Pro: 83.2%
 
-💻 CODING:
-   o1-preview: 95.1% | Gemini 2.5 Pro: 93.5% | Claude 3.5: 92.1%
+💰 BEST VALUE (score/dollar):
+   Gemini 1.5 Flash: 922.4 | $0.075/1M tokens
+   Claude 3 Haiku: 256.0 | $0.25/1M tokens
+   Llama 3 8B: 252.0 | $0.20/1M tokens
 
-💰 BEST VALUE:
-   Llama 3.1 8B: 1732 pts/$ (tiny model, massive value)
-   Gemini 2.0 Flash: 1105 pts/$ (fast + cheap)
+📏 LARGEST CONTEXT:
+   Gemini 1.5 Pro/Flash: 1M tokens
+   Claude 3 family: 200K tokens
 
-⚡ FASTEST:
-   Llama 3.1 8B: 200ms | Gemini 2.0 Flash: 300ms
-
-🏢 BY PROVIDER:
-   OpenAI: 86.0 avg | Google: 85.5 | Anthropic: 82.5
+🏢 BY PROVIDER (avg benchmark):
+   OpenAI: 79.8% avg | Google: 78.0% | Anthropic: 77.9%
 ```
+
+## Benchmarks Explained
+
+- **MMLU**: Multi-task language understanding (knowledge test across 57 subjects)
+- **HumanEval**: Python coding challenges (real code completions)
+- **MATH**: Graduate-level math problem solving
+- **GSM8K**: Grade school math word problems (8th grade level)
 
 ## Data Source
 
-Compiled from published benchmark results (MMLU, MATH, HumanEval, GPQA) across LMSYS, Artificial Analysis, and published model cards (2024-2025).
+Benchmark scores from OpenCompass, Artificial Analysis, LMSYS Chatbot Arena, and provider-published evaluations (2023-2024).
 
 ## Tech Stack
 
